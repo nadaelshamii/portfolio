@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Nada Elshami | Cyber-Security Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Nada Elshami — aspiring Cyber-Security analyst, Python & C developer, CompTIA Security+">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Content Security Policy -->
+  <meta http-equiv="Content-Security-Policy"
+        content="
+          default-src 'self';
+          script-src 'self' https://cdn.jsdelivr.net;
+          style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+          font-src https://fonts.gstatic.com 'self';
+          img-src 'self' data:;
+          object-src 'none';
+        ">
+
+  <!-- Preload JS -->
+  <link rel="preload" href="js/app.js" as="script">
+
+  <!-- Favicon (Make sure this file exists) -->
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+</head>
+
+<body>
+<header>
+  <nav aria-label="Primary">
+    <a href="#top" class="logo">N<span class="flash">E</span></a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><button id="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">◐</button></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section id="top" class="hero">
+    <h1 class="typewriter">Hi, I'm Nada Elshami.</h1>
+    <p>Cyber-Security student | Ethical Hacker | Python & C developer</p>
+    <a href="#projects" class="btn">See my work</a>
+  </section>
+
+  <section id="about">
+    <h2>About me</h2>
+    <p>
+      Final-year <strong>Bachelor of Information Sciences in Cyber Security</strong> at Sheridan College.
+      CompTIA Security+ certified. Experienced in penetration testing, network traffic analysis and
+      building secure web applications.
+    </p>
+    <ul class="skills">
+      <li>Python</li><li>C</li><li>Linux</li><li>Wireshark</li>
+      <li>Burp Suite</li><li>Nmap</li><li>MySQL</li><li>Git</li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="filters">
+      <button data-filter="all" class="active" type="button">All</button>
+      <button data-filter="red-team" type="button">Red-Team</button>
+      <button data-filter="blue-team" type="button">Blue-Team</button>
+      <button data-filter="code" type="button">Code</button>
+    </div>
+
+    <div class="grid">
+      <article class="card" data-category="red-team code">
+        <img src="assets/img/Wireshark.jpg" alt="Packet capture analysis in Wireshark" loading="lazy" decoding="async" width="640" height="360">
+        <h3>Network Traffic Analysis</h3>
+        <p>Used Wireshark to detect anomalous traffic on home Wi-Fi and documented IOCs.</p>
+        <a href="https://github.com/yourname/wireshark-project" target="_blank" rel="noopener noreferrer">Repo</a>
+      </article>
+
+      <article class="card" data-category="red-team">
+        <img src="assets/img/WebVul.jpg" alt="Burp Suite proxy and repeater tooling" loading="lazy" decoding="async" width="640" height="360">
+        <h3>Web App Vuln Scanner</h3>
+        <p>Manual exploitation of DVWA with Burp Suite: SQLi, XSS, session flaws.</p>
+        <a href="https://github.com/yourname/dvwa-notes" target="_blank" rel="noopener noreferrer">Report</a>
+      </article>
+
+      <article class="card" data-category="blue-team">
+        <img src="assets/img/nmap.jpg" alt="Nmap terminal output for network reconnaissance" loading="lazy" decoding="async" width="640" height="360">
+        <h3>Network Recon with Nmap</h3>
+        <p>Comprehensive port-scanning & service enumeration; hardening recommendations.</p>
+        <a href="assets/pdf/nmap-report.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Let's connect</h2>
+    <p>Feel free to reach out for collaboration or CTF teams.</p>
+    <button id="email-btn" class="btn outline" type="button" data-email="elshamyn@seridancollege.ca">
+      Copy e-mail to clipboard
+    </button>
+    <div class="social">
+      <a href="https://linkedin.com/in/nada-elshami" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/nadaelshamii" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <small>© <span id="year"></span> Nada Elshami</small>
+</footer>
+
+<!-- Defer scripts to avoid blocking rendering -->
+<script src="js/security.js" defer></script>
+<script src="js/app.js" defer></script>
+</body>
+</html>
