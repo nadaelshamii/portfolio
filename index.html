@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nada • Cybersecurity Portfolio</title>
+  <meta name="description" content="Cybersecurity portfolio: SOC/DFIR labs, automation, CTFs, and projects." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Matrix canvas background -->
+  <canvas id="matrix"></canvas>
+
+  <div class="hud">
+    <div class="hud__top">
+      <div class="brand">
+        <span class="sig"></span>
+        <div>
+          <div class="brand__name">NADA<span class="dim">.ELSHAMI</span></div>
+          <div class="brand__sub">SOC / DFIR / Automation • evidence-first portfolio</div>
+        </div>
+      </div>
+
+      <!-- Micro Navbar -->
+      <nav class="microNav" aria-label="Site navigation">
+        <a class="microNav__link" href="#terminalSection" data-nav="terminalSection">Console</a>
+        <a class="microNav__link" href="#dashboardSection" data-nav="dashboardSection">Dashboard</a>
+        <a class="microNav__link" href="#projectsSection" data-nav="projectsSection">Projects</a>
+        <a class="microNav__link" href="#contactSection" data-nav="contactSection">Contact</a>
+      </nav>
+
+      <div class="hud__actions">
+        <button class="btn btn--ghost" id="openPalette" title="Command Palette (Ctrl/⌘ K)">⌘K</button>
+        <button class="btn" id="openBooking">REQUEST BOOKING</button>
+      </div>
+    </div>
+
+    <div class="hud__grid">
+      <!-- Left column: Terminal -->
+      <section class="panel terminal" id="terminalSection">
+        <div class="panel__head">
+          <div class="panel__title">LIVE CONSOLE</div>
+          <div class="panel__meta">
+            <span class="pill">STATUS: <b class="ok">OPERATIONAL</b></span>
+            <span class="pill">UTC-05 <span id="clock"></span></span>
+          </div>
+        </div>
+
+        <div class="term__body" id="termBody" aria-label="Terminal output"></div>
+
+        <div class="term__input">
+          <span class="prompt">nada@portfolio</span>
+          <span class="prompt dim">:~$</span>
+          <input id="termInput" autocomplete="off" spellcheck="false" placeholder="type: help" />
+        </div>
+
+        <div class="term__hint dim">
+          Try: <kbd>help</kbd> <kbd>projects</kbd> <kbd>ctfs</kbd> <kbd>skills</kbd> <kbd>certs</kbd> <kbd>about</kbd> <kbd>open booking</kbd>
+        </div>
+      </section>
+
+      <!-- Right column: Cards -->
+      <section class="panel" id="dashboardSection">
+        <div class="panel__head">
+          <div class="panel__title glitch" data-text="OPERATIONS DASHBOARD">OPERATIONS DASHBOARD</div>
+          <div class="panel__meta">
+            <span class="pill">BUILD: <b>v3.0</b></span>
+            <span class="pill">LAST PATCH: <b id="patchDate"></b></span>
+          </div>
+        </div>
+
+        <div class="cards">
+          <article class="card scan">
+            <div class="card__title">Signal</div>
+            <div class="card__big" id="signal">Low noise, high receipts.</div>
+            <div class="card__sub dim">Everything here is linked to proof (repos + READMEs).</div>
+          </article>
+
+          <article class="card">
+            <div class="card__title">Core Focus</div>
+            <div class="tagrow">
+              <span class="tag">SOC Triage</span>
+              <span class="tag">DFIR</span>
+              <span class="tag">Windows</span>
+              <span class="tag">Automation</span>
+              <span class="tag">Networking</span>
+            </div>
+            <div class="card__sub dim">Calm under pressure. Slightly obsessed with logs. In a healthy way.</div>
+          </article>
+
+          <article class="card">
+            <div class="card__title">Quick Links</div>
+            <div class="links">
+              <a class="link" href="https://github.com/nadaelshamii" target="_blank" rel="noopener">GitHub →</a>
+              <a class="link" href="https://www.linkedin.com/in/nada-elshami" target="_blank" rel="noopener">LinkedIn →</a>
+
+              <a class="link" href="assets/Nada_Elshami_Resume.pdf" target="_blank" rel="noopener">Resume (PDF) →</a>
+
+              <button class="link" id="openProjects" type="button">Jump to Projects →</button>
+              <button class="link" id="openCTFs" type="button">CTFs (terminal) →</button>
+              <button class="link" id="openBooking2" type="button">Request Booking →</button>
+
+              <a class="link" id="emailLink" href="mailto:n.a.elshamy1@gmail.com">Email →</a>
+              <button class="link" id="copyEmail" type="button">Copy Email</button>
+            </div>
+
+            <div class="card__sub dim">
+              Primary: n.a.elshamy1@gmail.com • Student: elshamyn@sheridancollege.ca
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__title">Certifications</div>
+            <div class="certbox">
+              <div class="certline">
+                <span class="mini">CompTIA Security+</span>
+                <span class="dim">Verify: verify.CompTIA.org</span>
+              </div>
+              <div class="certline">
+                <code class="codepill" id="secPlusCode">GL38G50Q9NREC8RJ</code>
+                <div class="certactions">
+                  <a class="a" href="https://verify.comptia.org/" target="_blank" rel="noopener">Verify →</a>
+                  <button class="a" id="copySecPlus" type="button">Copy Code</button>
+                </div>
+              </div>
+              <div class="dim" id="secPlusNote"></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__title">Featured Projects</div>
+            <div class="projlist" id="featured"></div>
+            <div class="card__sub dim">These are the “SOC interviewer opens first” picks.</div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Full width: Projects -->
+      <section class="panel full" id="projectsSection">
+        <div class="panel__head">
+          <div class="panel__title">PROJECT ARCHIVE</div>
+          <div class="panel__meta">
+            <span class="pill">FILTER: <b id="filterLabel">ALL</b></span>
+            <span class="pill">TIP: click tags</span>
+          </div>
+        </div>
+
+        <div class="tagbar" id="tagbar"></div>
+        <div class="grid" id="projectsGrid"></div>
+      </section>
+
+      <!-- Full width: Footer -->
+      <footer class="footer full" id="contactSection">
+        <div class="dim">
+          © <span id="year"></span> Nada Elshami • “If it’s not logged, it didn’t happen.”
+        </div>
+        <div class="dim">
+          Palette: <kbd>Ctrl/⌘</kbd> + <kbd>K</kbd> • Terminal: <kbd>Enter</kbd> to run
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Command Palette -->
+  <div class="overlay" id="paletteOverlay" aria-hidden="true">
+    <div class="palette" role="dialog" aria-modal="true" aria-label="Command palette">
+      <div class="palette__head">
+        <div class="palette__title">Command Palette</div>
+        <button class="iconbtn" id="closePalette" aria-label="Close">✕</button>
+      </div>
+
+      <input id="paletteInput" placeholder="Type a command… (e.g., projects, open booking)" autocomplete="off" spellcheck="false"/>
+
+      <div class="palette__list" id="paletteList"></div>
+      <div class="dim palette__hint">Use ↑ ↓ and Enter</div>
+    </div>
+  </div>
+
+  <!-- Booking Modal -->
+  <div class="overlay" id="bookingOverlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Booking modal">
+      <div class="modal__head">
+        <div>
+          <div class="modal__title">Request Booking</div>
+          <div class="dim">Sends an email (simple + recruiter-friendly).</div>
+        </div>
+        <button class="iconbtn" id="closeBooking" aria-label="Close">✕</button>
+      </div>
+
+      <form class="form" id="bookingForm">
+        <div class="row">
+          <input id="bkName" placeholder="Name" />
+          <input id="bkEmail" placeholder="Email" type="email" />
+        </div>
+        <div class="row">
+          <input id="bkOrg" placeholder="Company / School" />
+          <select id="bkType">
+            <option>Portfolio review</option>
+            <option>Recruiting / interview</option>
+            <option>Project collaboration</option>
+            <option>General chat</option>
+          </select>
+        </div>
+        <textarea id="bkMsg" rows="4" placeholder="Context (role, time, goal, link)"></textarea>
+        <div class="actions">
+          <button class="btn btn--ghost" id="cancelBooking" type="button">Cancel</button>
+          <button class="btn" id="confirmBooking" type="submit">Open Email</button>
+        </div>
+        <div class="dim" id="bookingNote"></div>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
