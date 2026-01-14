@@ -285,8 +285,8 @@ function termCmd(cmd){
     ].join("<br>")),
 
     "ctfs": () => termPrint([
-      `CTFs: CyberSci / TryHackMe / Hack The Box`,
-      `<span class="dim">Next upgrade:</span> 2–3 writeups in GitHub READMEs (method + tools + fix).`
+      `CTFs Attended: Ontario Cyber Secuirty Summit 2025/ CyberSci 2025 /Bsides toronto 2025`,
+      `<span class="dim">writeups:</span> inclduing (methods + tools + fix). will be updated soon. `
     ].join("<br>")),
 
     "open booking": () => openBooking(),
